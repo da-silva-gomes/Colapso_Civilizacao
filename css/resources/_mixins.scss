@@ -1,0 +1,142 @@
+/*
+--------------------------------------------------------------------------------
+Sans serif auxiliar mixin
+--------------------------------------------------------------------------------
+*/
+
+@mixin responsive_font($min, $max, $weight: 400, $line-height: 1.5) {
+  line-height: $line-height;
+  font-weight: $weight;
+  font-size: #{$min}rem;
+
+  @include resolution(750px) {
+    font-size: calc(#{$min}rem + ((#{$max} * 10) - (#{$min} * 10)) * ((100vw - 650px) / 550));
+  }
+
+  @include resolution(1000px) {
+    font-size: #{$max}rem;
+  }
+}
+
+/*
+  --------------------------------------------------------------------------------
+  Mobile first queries
+  --------------------------------------------------------------------------------
+  */
+@mixin phablet {
+  @media (min-width: 550px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: 750px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: 1000px) {
+    @content;
+  }
+}
+@mixin hd {
+  @media (min-width: 1400px) {
+    @content;
+  }
+}
+@mixin resolution($r) {
+  @media (min-width: #{$r}) {
+    @content;
+  }
+}
+
+/*
+  --------------------------------------------------------------------------------
+  Retina queries
+  --------------------------------------------------------------------------------
+  */
+@mixin retina($dp) {
+  @media (-webkit-min-device-pixel-ratio: #{$dp}) {
+    @content;
+  }
+}
+
+/*
+  --------------------------------------------------------------------------------
+  Fix for mobile devices
+  --------------------------------------------------------------------------------
+  */
+@mixin remove_tap_highlight() {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+/*
+  --------------------------------------------------------------------------------
+  Custom helpers
+  --------------------------------------------------------------------------------
+  */
+@mixin no_select() {
+  user-select: none;
+}
+
+/*
+  --------------------------------------------------------------------------------
+  Animations
+  --------------------------------------------------------------------------------
+  */
+@mixin transition($duration: 0.2) {
+  transition: #{$duration}s ease-in-out;
+}
+
+@mixin ease_out() {
+  transition: 0.3s cubic-bezier(0, 0, 0.3, 0.9);
+}
+
+@mixin translate($x, $y) {
+  transform: translate($x, $y);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-up {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@mixin slide-X($name, $offset) {
+  @keyframes #{$name} {
+    0% {
+      transform: translateX($offset);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+@mixin slide-Y($name, $offset) {
+  @keyframes #{$name} {
+    0% {
+      transform: translateY($offset);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
