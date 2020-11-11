@@ -6,3 +6,29 @@ regular:       400
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+/*
+--------------------------------------------------------------------------------
+Monstarize, cursive
+regular:       400
+--------------------------------------------------------------------------------
+*/
+
+@include font('Monstarize', '../fonts/Monstarize/MONSTARIZE');
+
+/*
+--------------------------------------------------------------------------------
+Helvetica, sans-serif
+light:         300
+regular:       400
+semi-bold:     600
+bold:          700
+--------------------------------------------------------------------------------
+*/
+
+@include font('Helvetica', '../fonts/Helvetica/Helvetica');
+@include font('Helvetica Light', '../fonts/Helvetica/Helvetica-Light');
+@include font('Helvetica Bold', '../fonts/Helvetica/Helvetica-Bold');
+@include font('Helvetica Oblique', '../fonts/Helvetica/Helvetica-Oblique');
+@include font('Helvetica Light Oblique', '../fonts/Helvetica/Helvetica-LightOblique');
+@include font('Helvetica Bold Oblique', '../fonts/Helvetica/Helvetica-BoldOblique');
