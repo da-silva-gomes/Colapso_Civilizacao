@@ -22,6 +22,7 @@ h3 {
 }
 
 p, ul, li, q, address {
+  font-family: "Helvetica", sans-serif;
   @include responsive_font(
     $min: 2,
     $max: 2.4
@@ -30,14 +31,14 @@ p, ul, li, q, address {
 
 button {
   @include responsive_font(
-    $min: 1.2,
-    $max: 1.6,
-    $weight: 600
+    $min: 2.5,
+    $max: 3.5
   );
 }
 
 span {
-  text-transform: capitalize;
+  text-transform: uppercase;
+  font-family: "Helvetica", sans-serif;
   @include responsive_font(
     $min: 1.4,
     $max: 1.8

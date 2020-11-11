@@ -30,70 +30,12 @@ a {
 }
 
 section {
-  padding: 0 5vw;
+  padding: 2vh 2vw;
   overflow: hidden;
-}
-
-.upper {
-  text-transform: uppercase;
-}
-
-span {
-  font-weight: 300;
 }
 
 span.underline {
   background-image: linear-gradient(to bottom, rgba($pink-200, 0) 60%, $pink-400 60%);
   background-position: 0 -0.3em;
   background-size: 1px 1em * 1.5;
-}
-
-.content-wrapper {
-  padding: 5rem 0;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1200px;
-
-  & > h2,
-  & > p {
-    @include tablet {
-      text-align: center;
-    }
-  }
-
-  & > h2 {
-    max-width: 54rem;
-    @include tablet {
-      margin: 0 auto;
-    }
-  }
-
-  & > p {
-    max-width: 80rem;
-    margin: 3rem auto 0;
-    @include tablet {
-      margin-top: $xs;
-    }
-  }
-
-  @include tablet {
-    padding: 5rem 0;
-
-    & > p {
-      margin: $md auto 0 auto;
-    }
-  }
-}
-
-.visually-hidden {
-  position: absolute;
-  left: -10000px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-ul.bullet li {
-  margin: $xs 0;
-  list-style-type: disc;
 }

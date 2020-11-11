@@ -1,3 +1,27 @@
 .about {
+  width: 100vw;
+  height: 100vh;
   background: $grey-400;
+
+  .close-page {
+    @extend button;
+    line-height: 80%;
+
+    &:hover {
+      color: $pink-400;
+    }
+  }
+
+  div {
+    width: fit-content;
+    width: -webkit-fit-content;
+    margin: auto;
+    text-align: center;
+
+    .book-author {
+      &:before {
+        content: "—";
+      }
+    }
+  }
 }
