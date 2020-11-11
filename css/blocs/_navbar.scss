@@ -3,6 +3,12 @@ nav {
   padding: 2vh 2vw;
   position: absolute;
 
+  .link {
+    &:hover {
+      color: $pink-400;
+    }
+  }
+
   .about-link {
     float: right;
   }

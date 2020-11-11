@@ -1,7 +1,10 @@
 .about {
   width: 100vw;
   height: 100vh;
-  background: $grey-400;
+  //aumentar tamanho de letra da imagem para segunda meta
+  background-image: url("../media/sobre_book.png");
+  background-position: 50% 30%;
+  background-size: 100%;
 
   .close-page {
     @extend button;
@@ -15,7 +18,7 @@
   div {
     width: fit-content;
     width: -webkit-fit-content;
-    margin: auto;
+    margin: $lg auto;
     text-align: center;
 
     .book-author {
