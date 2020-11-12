@@ -22,6 +22,10 @@ $(document).ready(() => {
       $endPosition = false;
     }
 
-    //script to move to next section
+    if($endPosition === true) {
+      document.querySelector('#interaction-one').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
   })
 });
