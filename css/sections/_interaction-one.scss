@@ -4,6 +4,9 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  background-image: url("../media/svg/fundo.svg");
+  background-size: cover;
+  background-position: center;
 
   .drag-start {
     width: 20rem;

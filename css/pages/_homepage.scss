@@ -6,6 +6,20 @@
   align-items: center;
   justify-content: space-between;
 
+  &::before {
+    content: "";
+    background-image: url("../media/svg/fundo.svg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+
   div {
     &:not(.drag-start) {
       width: fit-content;
