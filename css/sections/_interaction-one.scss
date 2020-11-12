@@ -7,10 +7,10 @@
 
   .drag-start {
     width: 20rem;
-    height: 35rem;
+    height: 45rem;
     position: absolute;
     left: 0;
-    top: $lg * 50;
+    top: $lg * 40;
   }
 
   .drag-end {
@@ -20,7 +20,7 @@
     height: 4rem;
     border-radius: $lg;
     border: solid 1px $pink-400;
-    margin: $lg auto 0 auto;
+    margin: ($xxl * 1.6) auto 0 auto;
 
     box-shadow: 0 0 0 0 rgba($pink-400, 1);
     transform: scale(1);

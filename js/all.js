@@ -7,7 +7,8 @@ $(document).ready(() => {
     $(".cell-drag").draggable({
       axis: "y",
       cursor: "grab",
-      containment: "parent"
+      containment: "parent",
+      scroll: false
     });
   }
 
@@ -16,16 +17,19 @@ $(document).ready(() => {
     if(ui.position.top < 0) {
       $(".cell-drag").draggable('disabled');
     }
-    if(ui.position.top >= 150) {
+    if(ui.position.top >= 250) {
       $endPosition = true;
     } else {
       $endPosition = false;
     }
 
     if($endPosition === true) {
-      document.querySelector('#interaction-two').scrollIntoView({
-        behavior: 'smooth'
-      });
+      setTimeout(() => {
+        document.querySelector('#interaction-two').scrollIntoView({
+          behavior: 'smooth'
+        });
+        ui.position.top = 0;
+      }, 200);
     }
   })
 
