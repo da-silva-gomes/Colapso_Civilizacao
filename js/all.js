@@ -8,7 +8,8 @@ $(document).ready(() => {
       axis: "y",
       cursor: "grab",
       containment: "parent",
-      scroll: false
+      scroll: false,
+      revert: true
     });
   }
 
@@ -28,7 +29,6 @@ $(document).ready(() => {
         document.querySelector('#interaction-two').scrollIntoView({
           behavior: 'smooth'
         });
-        ui.position.top = 0;
       }, 200);
     }
   })
