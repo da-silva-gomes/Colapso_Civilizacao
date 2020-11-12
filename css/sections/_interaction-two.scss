@@ -1,4 +1,9 @@
 .interaction-two {
   width: 100vw;
   height: 100vh;
+  //se for para manter este formato, é necessário adaptar as imagens ao tamanho de ecrã para que elas ocupem toda a página sempre
+  background-image: url("../media/book1.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
