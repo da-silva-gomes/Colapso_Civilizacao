@@ -2,18 +2,30 @@
   width: 100vw;
   height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 
   div {
-    width: fit-content;
-    width: -webkit-fit-content;
-
-    h1,
-    h2 {
+    &:not(.drag-start) {
       width: fit-content;
       width: -webkit-fit-content;
-      margin: auto;
+      margin-top: $lg * 10;
+
+      h1,
+      h2 {
+        width: fit-content;
+        width: -webkit-fit-content;
+        margin: auto;
+      }
+    }
+
+    &.drag-start {
+      width: 20rem;
+      height: 35rem;
+      position: absolute;
+      top: $lg * 20;
     }
   }
+
+
 }
