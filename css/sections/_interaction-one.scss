@@ -9,10 +9,11 @@
   background-position: center;
 
   .drag-start {
-    width: 20rem;
-    height: 45rem;
+    width: 30rem;
+    height: 60rem;
     position: absolute;
     left: 0;
+    left: $lg * 20;
     top: $lg * 40;
   }
 
@@ -39,6 +40,7 @@
     border-radius: $xs;
     padding: $sm;
     box-shadow: 2px 5px 6px 0 rgba($black, 0.25);
+    margin: 0 $md $lg 0;
 
     p {
       font-family: "Permanent Marker", cursive;
