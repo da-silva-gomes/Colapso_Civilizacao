@@ -23,9 +23,15 @@ $(document).ready(() => {
     }
 
     if($endPosition === true) {
-      document.querySelector('#interaction-one').scrollIntoView({
+      document.querySelector('#interaction-two').scrollIntoView({
         behavior: 'smooth'
       });
     }
   })
+
+  $("#chevron-down").click(() => {
+    document.querySelector('#interaction-one').scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
 });
