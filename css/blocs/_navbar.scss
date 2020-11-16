@@ -1,15 +1,74 @@
 nav {
   width: 100vw;
+  height: 80vh;
   padding: 2vh 2vw;
-  position: absolute;
+  position: fixed;
+  z-index: 1;
+
+  &.adjust-size {
+    height: fit-content;
+    height: -webkit-fit-content;
+  }
 
   .link {
+    height: fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    width: -webkit-fit-content;
+    cursor: pointer;
+
     &:hover {
       color: $pink-400;
     }
   }
 
   .about-link {
+    @extend p;
+    letter-spacing: -1px;
+    font-family: "Helvetica Bold", sans-serif;
     float: right;
+  }
+
+  .logo {
+    width: fit-content;
+    width: -webkit-fit-content;
+    margin: $lg * 10 auto auto 33%;
+    transition: all 1s ease-out;
+
+    h1,
+    h2 {
+      width: fit-content;
+      width: -webkit-fit-content;
+      margin: auto;
+    }
+
+    h1 {
+      @extend h1.big;
+      transition: all 1s ease-out;
+    }
+
+    h2 {
+      @extend h2.big;
+      font-family: "Helvetica Bold", sans-serif;
+      letter-spacing: -1px;
+      line-height: 30%;
+      transition: all 1s ease-out;
+    }
+
+    &.adjust-position {
+      margin-top: 0;
+      margin-left: 0;
+
+      h1 {
+        @include responsive_font($min: 3, $max: 4.5);
+        color: $green-400;
+      }
+
+      h2 {
+        @include responsive_font($min: 2.4, $max: 2.8, $weight: 700);
+        color: $green-400;
+        line-height: 10%;
+      }
+    }
   }
 }

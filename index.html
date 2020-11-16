@@ -22,14 +22,16 @@
     <script src="js/all.js"></script>
   </head>
   <body>
-    <nav>
-      <a class="link about-link" href="about.html">Sobre</a>
+    <nav id="navbar">
+      <a class="link about-link" onclick="showSobre();">Sobre</a>
+      <a href="index.html">
+        <div class="logo">
+          <h1>O Colapso</h1>
+          <h2>da Civilização</h2>
+        </div>
+      </a>
     </nav>
     <section class="homepage">
-      <div>
-        <h1>O Colapso</h1>
-        <h2>da Civilização</h2>
-      </div>
       <img
         class="chevron-down"
         id="chevron-down"
@@ -37,7 +39,43 @@
         alt="Próxima secção"
       />
     </section>
-    <section class="interaction-one" id="interaction-one">
+    <section class="instructions" id="instructions">
+      <div class="content-wrapper">
+        <h1>Como funciona?</h1>
+        <p>
+          Texto relativo a forma como o website/interações podem funcionar. E
+          outras instruções que podem ser necessários (ouvir com phones se
+          existir audio, aconselhada a visualização em desktop, ...). Texto
+          relativo a forma como o website/interações podem funcionar. E outras
+          instruções que podem ser necessários (ouvir com phones se existir
+          audio, aconselhada a visualização em desktop, ...). Texto relativo a
+          forma como o website/interações podem funcionar. E outras instruções
+          que podem ser necessários (ouvir com phones se existir audio,
+          aconselhada a visualização em desktop, ...)
+        </p>
+      </div>
+      <div class="interaction-start" id="interaction-start">
+        <div class="drag-start">
+          <img
+            class="cell-drag"
+            onmouseover="this.src='media/svg/cell-hover.svg'"
+            onmouseout="this.src='media/svg/cell.svg'"
+            src="media/svg/cell.svg"
+            alt=""
+          />
+          <div class="drag-end"></div>
+        </div>
+      </div>
+    </section>
+    <section class="about" style="display: none">
+      <a class="close-page" href="index.html">X</a>
+      <div>
+        <h1 class="page-title">Sobre</h1>
+        <p class="book-title">"O Colapso da Civilização"</p>
+        <span class="book-author">João Fonte Santa</span>
+      </div>
+    </section>
+    <section class="interaction-one" id="interaction-one" style="display: none">
       <div class="drag-start">
         <img
           class="cell-drag"
@@ -55,7 +93,10 @@
         </p>
       </div>
     </section>
-    <section class="empty-section"></section>
-    <section class="interaction-two" id="interaction-two"></section>
+    <section
+      class="interaction-two"
+      id="interaction-two"
+      style="display: none"
+    ></section>
   </body>
 </html>
