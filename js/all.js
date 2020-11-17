@@ -72,6 +72,6 @@ $.fn.isInViewport = function () {
 
 $(document).keydown((e) => {
   if (e.which === 13 && $("#interaction-start").isInViewport()) {
-    alert("Key " + e.which + ", ENTER, was clicked.");
+    alert("Key " + e.which + ", ENTER, was clicked. Your experience is starting");
   }
 });
