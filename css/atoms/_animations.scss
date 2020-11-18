@@ -14,3 +14,15 @@
     box-shadow: 0 0 0 0 rgba($pink-400, 0);
   }
 }
+
+@-webkit-keyframes pulsate {
+  0% {
+      opacity: 0.6;
+  }
+  50% {
+      opacity: 1.0;
+  }
+  100% {
+      opacity: 0.6;
+  }
+}

@@ -28,6 +28,7 @@ $(document).ready(() => {
 
     if ($endPosition === true) {
       setTimeout(() => {
+        $('#interaction-two')[0].style.display = 'flex';
         document.querySelector('#interaction-two').scrollIntoView({
           behavior: 'smooth'
         });
@@ -46,20 +47,6 @@ $(document).ready(() => {
   });
 });
 
-$(window).scroll(() => {
-  if ($logo.length == 1) {
-    if ($(this).scrollTop() > 400) {
-      $logo[0].classList.add("adjust-position");
-      $navbar.classList.add("adjust-size");
-      $logoSmaller = false;
-    }
-    if ($(this).scrollTop() < 400 && !$logoSmaller) {
-      $logo[0].classList.remove("adjust-position");
-      $navbar.classList.remove("adjust-size");
-    }
-  }
-})
-
 $.fn.isInViewport = function () {
   let elementTop = $(this).offset().top;
   let elementBottom = elementTop + $(this).outerHeight();
@@ -72,6 +59,40 @@ $.fn.isInViewport = function () {
 
 $(document).keydown((e) => {
   if (e.which === 13 && $("#interaction-start").isInViewport()) {
-    alert("Key " + e.which + ", ENTER, was clicked. Your experience is starting");
+    $('#interaction-one')[0].style.display = 'flex';
+
+    if ($('.interaction-one')[0].style.display === "flex") {
+      $('#homepage')[0].style.display = 'none';
+      $('#about')[0].style.display = 'none';
+      $('#instructions')[0].style.display = 'none';
+      $logoSmaller = true;
+      $logo[0].classList.add("adjust-position");
+      $navbar.classList.add("adjust-size");
+    }
+
+    document.querySelector('#interaction-one').scrollIntoView({
+      behavior: 'smooth'
+    });
   }
 });
+
+$(window).scroll(() => {
+  if ($logo.length == 1) {
+    if ($('.interaction-one')[0].style.display !== "flex") {
+      if ($(this).scrollTop() > 400) {
+        $logo[0].classList.add("adjust-position");
+        $navbar.classList.add("adjust-size");
+        $logoSmaller = false;
+      }
+      if ($(this).scrollTop() < 400 && !$logoSmaller) {
+        $logo[0].classList.remove("adjust-position");
+        $navbar.classList.remove("adjust-size");
+      }
+    }
+  }
+})
+
+function toggleSobre() {
+  $('.about')[0].classList.toggle("opened");
+  $('body')[0].style.overflow = $('body')[0].style.overflow === 'hidden' ? '' : 'hidden';
+}

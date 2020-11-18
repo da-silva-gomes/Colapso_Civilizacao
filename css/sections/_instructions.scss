@@ -4,10 +4,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
   .content-wrapper {
     width: 50%;
-    margin-left: $xxl * 3;
+    //margin-left: $xxl * 3;
 
     h1 {
       color: $pink-400;
@@ -16,27 +17,22 @@
   }
 
   .interaction-start {
-    width: 50%;
+    position: absolute;
+    bottom: -90vh;
+    width: 15%;
     height: fit-content;
     height: -webkit-fit-content;
+    text-align: center;
 
-    .drag-start {
-      width: 30rem;
-      height: 60rem;
-    }
-
-    .drag-end {
-      position: relative;
-      z-index: -1;
-      width: 4rem;
-      height: 4rem;
-      border-radius: $lg;
-      border: solid 1px $pink-400;
-      margin: ($xxl * 1.6) auto 0 auto;
-
-      box-shadow: 0 0 0 0 rgba($pink-400, 1);
-      transform: scale(1);
-      animation: pulse 2s infinite;
+    p {
+      @extend span;
+      text-transform: initial;
+      font-family: "Helvetica Light", sans-serif;
+      animation: pulsate 1s ease-out;
+      animation-iteration-count: infinite;
+      -webkit-animation: pulsate 1s ease-out;
+      -webkit-animation-iteration-count: infinite;
+      opacity: 0.6;
     }
   }
 }

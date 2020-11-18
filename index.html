@@ -23,7 +23,7 @@
   </head>
   <body>
     <nav id="navbar">
-      <a class="link about-link" onclick="showSobre();">Sobre</a>
+      <a class="link about-link" onclick="toggleSobre();">Sobre</a>
       <a href="index.html">
         <div class="logo">
           <h1>O Colapso</h1>
@@ -31,7 +31,7 @@
         </div>
       </a>
     </nav>
-    <section class="homepage">
+    <section class="homepage" id="homepage">
       <img
         class="chevron-down"
         id="chevron-down"
@@ -59,15 +59,15 @@
         </div>
       </div>
     </section>
-    <section class="about" style="display: none">
-      <a class="close-page" href="index.html">X</a>
+    <section class="about" id="about">
+      <a class="close-page" onclick="toggleSobre();">X</a>
       <div>
         <h1 class="page-title">Sobre</h1>
         <p class="book-title">"O Colapso da Civilização"</p>
         <span class="book-author">João Fonte Santa</span>
       </div>
     </section>
-    <section class="interaction-one" id="interaction-one" style="display: none">
+    <section class="interaction-one" id="interaction-one" style="display: none;">
       <div class="drag-start">
         <img
           class="cell-drag"
@@ -85,10 +85,7 @@
         </p>
       </div>
     </section>
-    <section
-      class="interaction-two"
-      id="interaction-two"
-      style="display: none"
-    ></section>
+    <section class="interaction-two" id="interaction-two" style="display: none;">
+    </section>
   </body>
 </html>
