@@ -16,7 +16,6 @@ $(document).ready(() => {
   }
 
   $(".cell-drag").on('drag', (event, ui) => {
-    console.log(ui.position.top);
     if (ui.position.top < 0) {
       $(".cell-drag").draggable('disabled');
     }
