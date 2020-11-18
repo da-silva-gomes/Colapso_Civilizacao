@@ -8,60 +8,35 @@
 
   &::before {
     content: "";
-    background-image: url("../media/svg/fundo.svg");
+    background-image: url("../media/fundo.png");
     background-size: cover;
     background-position: center;
-    opacity: 0.2;
     top: 0;
     left: 0;
-    bottom: 0;
+    bottom: -40vh;
     right: 0;
     position: absolute;
     z-index: -1;
   }
 
-  div {
-    &:not(.drag-start) {
-      width: fit-content;
-      width: -webkit-fit-content;
-      margin-top: $lg * 10;
-
-      h1,
-      h2 {
-        width: fit-content;
-        width: -webkit-fit-content;
-        margin: auto;
-      }
-
-      h1 {
-        @extend h1.big;
-      }
-
-      h2 {
-        @extend h2.big;
-      }
-    }
+  &::after {
+    content: "";
+    background-image: url("../media/banner.png");
+    background-size: 100vw 200vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -100vh;
+    position: absolute;
+    z-index: -1;
   }
 
   .chevron-down {
+    position: absolute;
+    bottom: 0;
     cursor: pointer;
     margin-bottom: $md;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba($pink-400, 0.7);
-  }
-
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 10px rgba($pink-400, 0);
-  }
-
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba($pink-400, 0);
   }
 }

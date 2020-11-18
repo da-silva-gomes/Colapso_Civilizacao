@@ -1,4 +1,5 @@
 .interaction-one {
+  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -12,9 +13,8 @@
     width: 30rem;
     height: 60rem;
     position: absolute;
-    left: 0;
     left: $lg * 20;
-    top: $lg * 40;
+    top: $lg * 2;
   }
 
   .drag-end {

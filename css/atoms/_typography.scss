@@ -2,7 +2,7 @@ h1 {
   @include responsive_font($min: 3, $max: 4.5);
 
   &.big {
-    @include responsive_font($min: 7, $max: 9);
+    @include responsive_font($min: 7, $max: 10.8);
   }
 }
 
@@ -10,7 +10,7 @@ h2 {
   @include responsive_font($min: 2.4, $max: 2.8, $weight: 700);
 
   &.big {
-    @include responsive_font($min: 5, $max: 6);
+    @include responsive_font($min: 5, $max: 7);
   }
 }
 

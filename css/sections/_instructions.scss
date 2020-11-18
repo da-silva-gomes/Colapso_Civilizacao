@@ -1,0 +1,37 @@
+.instructions {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .content-wrapper {
+    width: 50%;
+
+    h1 {
+      color: $pink-400;
+      margin-bottom: $sm;
+    }
+  }
+
+  .interaction-start {
+    position: absolute;
+    bottom: -90vh;
+    width: 15%;
+    height: fit-content;
+    height: -webkit-fit-content;
+    text-align: center;
+
+    p {
+      @extend span;
+      text-transform: initial;
+      font-family: "Helvetica Light", sans-serif;
+      animation: pulsate 1s ease-out;
+      animation-iteration-count: infinite;
+      -webkit-animation: pulsate 1s ease-out;
+      -webkit-animation-iteration-count: infinite;
+      opacity: 0.6;
+    }
+  }
+}
