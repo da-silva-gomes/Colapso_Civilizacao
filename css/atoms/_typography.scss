@@ -25,6 +25,10 @@ q,
 address {
   font-family: "Helvetica", sans-serif;
   @include responsive_font($min: 2, $max: 2.4);
+
+  &.pink {
+    color: $pink-200;
+  }
 }
 
 button {

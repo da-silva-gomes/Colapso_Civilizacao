@@ -72,6 +72,10 @@ $(document).keydown((e) => {
     document.querySelector('#interaction-one').scrollIntoView({
       behavior: 'smooth'
     });
+
+    const $audio = $("#player");
+    $audio[0].volume = 0.2;
+    $audio[0].play();
   }
 });
 
