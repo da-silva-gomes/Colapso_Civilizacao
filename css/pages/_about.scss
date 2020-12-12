@@ -1,12 +1,8 @@
 .about {
   width: 100vw;
   height: 100vh;
-  //aumentar tamanho de letra da imagem para segunda meta
-  //diminuir peso da imagem
-  background-image: url("../media/sobre_book.png");
-  background-position: 50% 30%;
-  background-size: 100%;
   position: fixed;
+  background-color: $grey-400;
   top: 0;
   bottom: 0;
   left: 100vw;
@@ -30,7 +26,7 @@
     }
   }
 
-  div {
+  .info-wrapper {
     width: fit-content;
     width: -webkit-fit-content;
     margin: $lg auto;
@@ -41,5 +37,9 @@
         content: "—";
       }
     }
+  }
+
+  .book-wrapper {
+    perspective: 2000px;
   }
 }
