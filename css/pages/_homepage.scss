@@ -9,11 +9,13 @@
   &::before {
     content: "";
     background-image: url("../media/fundo.png");
-    background-size: cover;
+    background-size: 100vw;
     background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
     top: 0;
     left: 0;
-    bottom: -40vh;
+    bottom: -30vh;
     right: 0;
     position: absolute;
     z-index: -1;
@@ -21,10 +23,11 @@
 
   &::after {
     content: "";
-    background-image: url("../media/banner.png");
+    background-image: url("../media/banner.svg");
     background-size: 100vw 200vh;
-    background-position: center;
+    background-position: 8vw;
     background-repeat: no-repeat;
+    mix-blend-mode: multiply;
     top: 0;
     left: 0;
     right: 0;

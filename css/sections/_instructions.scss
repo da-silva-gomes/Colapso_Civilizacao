@@ -4,13 +4,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 
   .content-wrapper {
-    width: 50%;
+    width: 30%;
+    margin-left: $lg;
 
     h1 {
-      color: $pink-400;
+      color: $black;
       margin-bottom: $sm;
     }
   }
@@ -18,10 +18,11 @@
   .interaction-start {
     position: absolute;
     bottom: -90vh;
-    width: 15%;
+    width: fit-content;
+    width: -webkit-fit-content;
     height: fit-content;
     height: -webkit-fit-content;
-    text-align: center;
+    margin-left: $lg;
 
     p {
       @extend span;
@@ -32,6 +33,26 @@
       -webkit-animation: pulsate 1s ease-out;
       -webkit-animation-iteration-count: infinite;
       opacity: 0.6;
+
+      span {
+        position: relative;
+        font-family: "Permanent Marker", cursive;
+        @include responsive_font($min: 2, $max: 2.4);
+
+        &::before {
+          content: '';
+          background-image: url('../media/enter.svg');
+          background-size: 100%;
+          background-position: right;
+          background-repeat: no-repeat;
+          top: -5vh;
+          left: 0;
+          bottom: -5vh;
+          right: 0;
+          position: absolute;
+          z-index: -1;
+        }
+      }
     }
   }
 }

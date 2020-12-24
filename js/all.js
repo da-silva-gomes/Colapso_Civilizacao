@@ -5,6 +5,11 @@ $(document).ready(() => {
   $navbar = document.getElementById("navbar");
   $logoSmaller = false;
 
+  $(".cell-drag").hover(() => {
+    $("#interaction-hover")[0].classList.toggle("displayed");
+    $("#drag-end")[0].classList.toggle("displayed");
+  })
+
   if ($cell.length > 0) {
     $(".cell-drag").draggable({
       axis: "y",
@@ -95,6 +100,7 @@ $(window).scroll(() => {
   }
 })
 
+//function to open and close the sidebar menu that it's actually the about page
 function toggleSobre() {
   $('.about')[0].classList.toggle("opened");
   $('body')[0].style.overflow = $('body')[0].style.overflow === 'hidden' ? '' : 'hidden';
