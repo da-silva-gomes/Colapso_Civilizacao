@@ -22,8 +22,11 @@
     <script src="js/all.js"></script>
   </head>
   <body>
-    <audio id="player" loop autoplay controls style="position: absolute; opacity: 0;">
+    <audio id="bg-player" loop autoplay controls style="position: absolute; opacity: 0;">
       <source src="./media/audio/Dark_Soundscape.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="scream-player" style="position: absolute; opacity: 0;">
+      <source src="./media/audio/scream.mp3" type="audio/mpeg" />
     </audio>
     <nav id="navbar">
       <a class="link about-link" onclick="toggleSobre();">Sobre</a>
@@ -176,7 +179,7 @@
       <div class="drag-instruction">
         <p>
           Encontre a célula reativa e arraste-a até ao círculo no ecrã para
-          avançares na experiência.
+          avançares.
         </p>
       </div>
     </section>

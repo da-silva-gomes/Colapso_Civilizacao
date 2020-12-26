@@ -8,6 +8,10 @@ $(document).ready(() => {
   $(".cell-drag").hover(() => {
     $("#interaction-hover")[0].classList.toggle("displayed");
     $("#drag-end")[0].classList.toggle("displayed");
+
+    const $audioScream = $("#scream-player");
+    $audioScream[0].volume = 0.2;
+    $audioScream[0].play();
   })
 
   if ($cell.length > 0) {
@@ -96,7 +100,7 @@ $(document).keydown((e) => {
       behavior: 'smooth'
     });
 
-    const $audio = $("#player");
+    const $audio = $("#bg-player");
     $audio[0].volume = 0.2;
     $audio[0].play();
   }
