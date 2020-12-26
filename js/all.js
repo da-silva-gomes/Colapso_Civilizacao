@@ -37,8 +37,26 @@ $(document).ready(() => {
           behavior: 'smooth'
         });
       }, 200);
+      setTimeout(() => {
+        $('#interaction-one')[0].style.display = 'none';
+      }, 1000);
     }
-  })
+  });
+
+  $("#return-to-one").click(() => {
+    setTimeout(() => {
+      $('#interaction-one')[0].style.display = 'flex';
+      document.querySelector('#interaction-two').scrollIntoView({
+        behavior: 'instant'
+      });
+      document.querySelector('#interaction-one').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }, 200);
+    setTimeout(() => {
+      $('#interaction-two')[0].style.display = 'none';
+    }, 1000);
+  });
 
   $("#chevron-down").click(() => {
     if ($logo.length == 1) {
