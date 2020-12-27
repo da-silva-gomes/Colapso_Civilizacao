@@ -8,6 +8,10 @@
 
   img {
     position: absolute;
+    display: flex;
+    justify-content: center;
     width: 100%;
+    top: -10vh;
+    left: 0;
   }
 }

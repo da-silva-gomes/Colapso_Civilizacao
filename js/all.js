@@ -5,15 +5,18 @@ $(document).ready(() => {
   $navbar = document.getElementById("navbar");
   $logoSmaller = false;
 
+  // hover interaction with cell [interaction-one]
   $(".cell-drag").hover(() => {
     $("#interaction-hover")[0].classList.toggle("displayed");
     $("#drag-end")[0].classList.toggle("displayed");
 
+    // Playing scream audio on hover
     const $audioScream = $("#scream-player");
     $audioScream[0].volume = 0.2;
     $audioScream[0].play();
   })
 
+  // Setting the cell as a draggable element [interaction-one]
   if ($cell.length > 0) {
     $(".cell-drag").draggable({
       axis: "y",
@@ -25,29 +28,38 @@ $(document).ready(() => {
   }
 
   $(".cell-drag").on('drag', (event, ui) => {
+    // Disable draggable capacity if the user tries to go on opposite direction
     if (ui.position.top < 0) {
       $(".cell-drag").draggable('disabled');
     }
+
+    // Checking if the drag movement as reach it's maximum
     if (ui.position.top >= 250) {
       $endPosition = true;
     } else {
       $endPosition = false;
     }
 
+    // Condition to check if the drag was completed
+    // if so, the next section is presented, and eveyrthing above is hidden
     if ($endPosition === true) {
+      // show timeout
       setTimeout(() => {
         $('#interaction-two')[0].style.display = 'flex';
         document.querySelector('#interaction-two').scrollIntoView({
           behavior: 'smooth'
         });
       }, 200);
+      // hide timeout
       setTimeout(() => {
         $('#interaction-one')[0].style.display = 'none';
       }, 1000);
     }
   });
 
+  // Condition to return to previous section [Between Interaction-one and Interaction-two]
   $("#return-to-one").click(() => {
+    // show timeout
     setTimeout(() => {
       $('#interaction-one')[0].style.display = 'flex';
       document.querySelector('#interaction-two').scrollIntoView({
@@ -57,11 +69,13 @@ $(document).ready(() => {
         behavior: 'smooth'
       });
     }, 200);
+    // hide timeout
     setTimeout(() => {
       $('#interaction-two')[0].style.display = 'none';
     }, 1000);
   });
 
+  // Condition to apply a smooth scroll to Instructions seciton
   $("#chevron-down").click(() => {
     if ($logo.length == 1) {
       $logo[0].classList.add("adjust-position");
@@ -73,6 +87,7 @@ $(document).ready(() => {
   });
 });
 
+// Function to check if an element its visible
 $.fn.isInViewport = function () {
   let elementTop = $(this).offset().top;
   let elementBottom = elementTop + $(this).outerHeight();
@@ -83,10 +98,14 @@ $.fn.isInViewport = function () {
   return elementBottom > viewportTop && elementTop < viewportBottom;
 };
 
+// Condition to check if a key is being pressed
 $(document).keydown((e) => {
+  // Condition to check if ENTER key it's pressed
+  // Every key as it's own id
   if (e.which === 13 && $("#interaction-start").isInViewport()) {
     $('#interaction-one')[0].style.display = 'flex';
 
+    // Condition to show first interaction and hide initial sections
     if ($('.interaction-one')[0].style.display === "flex") {
       $('#homepage')[0].style.display = 'none';
       $('#about')[0].style.display = 'none';
@@ -100,15 +119,18 @@ $(document).keydown((e) => {
       behavior: 'smooth'
     });
 
+    // play audio after starting interactions
     const $audio = $("#bg-player");
     $audio[0].volume = 0.2;
     $audio[0].play();
   }
 });
 
+// Condition to resize logo according to scroll position
+// Necessary to add a condition to every interaction
 $(window).scroll(() => {
   if ($logo.length == 1) {
-    if ($('.interaction-one')[0].style.display !== "flex") {
+    if ($('.interaction-one')[0].style.display !== "flex" && $('.interaction-two')[0].style.display !== "flex") {
       if ($(this).scrollTop() > 400) {
         $logo[0].classList.add("adjust-position");
         $navbar.classList.add("adjust-size");
