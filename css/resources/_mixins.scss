@@ -135,6 +135,20 @@ Sans serif auxiliar mixin
   }
 }
 
+@keyframes boat-movement {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-100px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 @mixin slide-X($name, $offset) {
   @keyframes #{$name} {
     0% {

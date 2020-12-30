@@ -1,17 +1,99 @@
 .interaction-two {
+  overflow-y: hidden;
   width: 100vw;
   height: 100vh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  img {
+  span {
+    z-index: 1000;
+  }
+
+  .bg {
     position: absolute;
     display: flex;
     justify-content: center;
-    width: 100%;
-    top: -10vh;
+    width: 80%;
+    top: 0vh;
+    bottom: auto;
+    left: 10%;
+
+    &.bottom {
+      bottom: 0;
+      top: auto;
+    }
+  }
+
+  .tiger-instruction {
+    position: absolute;
+    right: 2vw;
+    bottom: 2vh;
+    z-index: 1;
+    background-color: $pink-400;
+    width: 50rem;
+    height: fit-content;
+    height: -webkit-fit-content;
+    border-radius: $xs;
+    padding: $sm;
+    box-shadow: 2px 5px 6px 0 rgba($black, 0.25);
+    margin: 0 $md $lg 0;
+
+    p {
+      font-family: "Permanent Marker", cursive;
+      color: $white;
+    }
+  }
+
+  .tigers-wrapper {
+    position: absolute;
+    height: 90%;
+    top: 10%;
+    bottom: 5%;
     left: 0;
+    right: 0;
+
+    img {
+      width: 20%;
+      position: absolute;
+      opacity: 0;
+
+      &.highlighted {
+        opacity: 1;
+      }
+
+      &:nth-child(1) {
+        top: 10vh;
+        bottom: auto;
+        left: 20vw;
+        right: auto;
+      }
+      &:nth-child(2) {
+        width: 35%;
+        top: auto;
+        bottom: 5vh;
+        left: auto;
+        right: 0;
+      }
+      &:nth-child(3) {
+        top: auto;
+        bottom: 5vh;
+        left: 5vw;
+        right: auto;
+      }
+      &:nth-child(4) {
+        width: 15%;
+        top: auto;
+        bottom: 15vh;
+        left: 40vw;
+        right: auto;
+      }
+      &:nth-child(5) {
+        top: 0;
+        bottom: auto;
+        left: auto;
+        right: 25vw;
+      }
+    }
   }
 }

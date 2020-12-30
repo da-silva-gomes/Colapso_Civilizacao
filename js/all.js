@@ -1,9 +1,10 @@
 $(document).ready(() => {
-  $endPosition = false;
   $cell = document.querySelectorAll(".cell-drag");
   $logo = document.querySelectorAll(".logo");
   $navbar = document.getElementById("navbar");
+  $endPosition = false;
   $logoSmaller = false;
+  $fiveTigers = false;
 
   // hover interaction with cell [interaction-one]
   $(".cell-drag").hover(() => {
@@ -46,12 +47,14 @@ $(document).ready(() => {
       // show timeout
       setTimeout(() => {
         $('#interaction-two')[0].style.display = 'flex';
+        $('#interaction-two')[0].style.visibility = 'hidden';
         document.querySelector('#interaction-two').scrollIntoView({
           behavior: 'smooth'
         });
       }, 200);
       // hide timeout
       setTimeout(() => {
+        $('#interaction-two')[0].style.visibility = 'visible';
         $('#interaction-one')[0].style.display = 'none';
       }, 1000);
     }
@@ -72,6 +75,24 @@ $(document).ready(() => {
     // hide timeout
     setTimeout(() => {
       $('#interaction-two')[0].style.display = 'none';
+    }, 1000);
+  });
+
+  // Condition to return to previous section [Between Interaction-two and Interaction-three]
+  $("#return-to-two").click(() => {
+    // show timeout
+    setTimeout(() => {
+      $('#interaction-two')[0].style.display = 'flex';
+      document.querySelector('#interaction-three').scrollIntoView({
+        behavior: 'instant'
+      });
+      document.querySelector('#interaction-two').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }, 200);
+    // hide timeout
+    setTimeout(() => {
+      $('#interaction-three')[0].style.display = 'none';
     }, 1000);
   });
 
@@ -148,4 +169,54 @@ $(window).scroll(() => {
 function toggleSobre() {
   $('.about')[0].classList.toggle("opened");
   $('body')[0].style.overflow = $('body')[0].style.overflow === 'hidden' ? '' : 'hidden';
+}
+
+//function to open and close the sidebar menu that it's actually the about page
+function highlightTiger(div) {
+  div.classList.add('highlighted');
+  $tigers = document.querySelectorAll(".highlighted");
+  // Tiger interaction, condition to check if all tigers are highlighted
+  console.log($tigers.length);
+  if ($tigers.length === 5) {
+    $fiveTigers = true;
+  }
+
+  if ($fiveTigers) {
+    // show timeout
+    setTimeout(() => {
+      $('#interaction-three')[0].style.display = 'flex';
+      document.querySelector('#interaction-three').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }, 2200);
+    // hide timeout
+    setTimeout(() => {
+      $('#interaction-two')[0].style.display = 'none';
+      $tigers.forEach(tiger => {
+        tiger.classList.remove('highlighted');
+      });
+      $fiveTigers = false;
+    }, 3000);
+  }
+}
+
+let boatTimer = null;
+
+function moveBoat(image) {
+  var newLeft = parseInt(image.style.left) + 10 + 'px';
+  image.style.left = newLeft;
+
+  return newLeft;
+}
+
+// condition for boat movement
+function boatMovement(image, mouseIn) {
+
+  if(mouseIn) {
+    boatTimer = setInterval(() => {
+      image.style.left = moveBoat(image);
+    }, 100);
+  } else {
+    clearInterval(boatTimer)
+  }
 }

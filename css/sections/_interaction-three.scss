@@ -1,0 +1,26 @@
+.interaction-three {
+  overflow-y: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  span {
+    z-index: 1000;
+  }
+
+  .boat-hover {
+    position: absolute;
+    width: 40%;
+    bottom: 0;
+    transition: all ease-out 2s;
+
+    &:hover {
+      animation: boat-movement 3s ease-in-out;
+      animation-iteration-count: infinite;
+      -webkit-animation: boat-movement 3s linear;
+      -webkit-animation-iteration-count: infinite;
+    }
+  }
+}
