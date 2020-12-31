@@ -14,8 +14,15 @@
   .boat-hover {
     position: absolute;
     width: 40%;
-    bottom: 0;
+    bottom: 10vh;
     transition: all ease-out 2s;
+
+    &.no-hover {
+      &:hover {
+        animation: none;
+        -webkit-animation: none;
+      }
+    }
 
     &:hover {
       animation: boat-movement 3s ease-in-out;

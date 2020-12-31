@@ -212,11 +212,20 @@ function moveBoat(image) {
 // condition for boat movement
 function boatMovement(image, mouseIn) {
 
-  if(mouseIn) {
+  if (mouseIn) {
     boatTimer = setInterval(() => {
       image.style.left = moveBoat(image);
+      console.log("interval: " + image.style.left);
+
+      if (image.style.left >= '920px') {
+        clearInterval(boatTimer);
+        mouseIn = false;
+        image.classList.add('no-hover');
+        $(image).attr('src', 'media/interactions/barco-moved.svg');
+      }
     }, 100);
   } else {
-    clearInterval(boatTimer)
+    clearInterval(boatTimer);
+    console.log("cleared: " + image.style.left);
   }
 }
