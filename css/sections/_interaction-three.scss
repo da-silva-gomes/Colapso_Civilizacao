@@ -7,6 +7,7 @@
   align-items: center;
 
   span {
+    color: $pink-400;
     z-index: 1000;
   }
 
@@ -21,6 +22,19 @@
       animation-iteration-count: infinite;
       -webkit-animation: boat-movement 3s linear;
       -webkit-animation-iteration-count: infinite;
+    }
+  }
+
+  .bg {
+    position: absolute;
+    width: 105%;
+    top: -5vh;
+    left: -2.5%;
+    z-index: -1;
+
+    &.bottom {
+      top: auto;
+      bottom: 0;
     }
   }
 }
