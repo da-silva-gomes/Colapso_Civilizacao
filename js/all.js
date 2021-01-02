@@ -2,6 +2,7 @@ $(document).ready(() => {
   $cell = document.querySelectorAll(".cell-drag");
   $logo = document.querySelectorAll(".logo");
   $navbar = document.getElementById("navbar");
+  $boatHover = document.getElementById("boat-hover");
   $endPosition = false;
   $logoSmaller = false;
   $fiveTigers = false;
@@ -93,6 +94,28 @@ $(document).ready(() => {
     // hide timeout
     setTimeout(() => {
       $('#interaction-three')[0].style.display = 'none';
+      console.log($boatHover);
+      $boatHover.classList.remove('no-hover');
+      $boatHover.style.left = "0px";
+      $($boatHover).attr('src', 'media/interactions/barco.svg');
+    }, 1000);
+  });
+
+  // Condition to return to previous section [Between Interaction-thre and Interaction-three]
+  $("#return-to-three").click(() => {
+    // show timeout
+    setTimeout(() => {
+      $('#interaction-three')[0].style.display = 'flex';
+      document.querySelector('#interaction-four').scrollIntoView({
+        behavior: 'instant'
+      });
+      document.querySelector('#interaction-three').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }, 200);
+    // hide timeout
+    setTimeout(() => {
+      $('#interaction-four')[0].style.display = 'none';
     }, 1000);
   });
 
@@ -151,7 +174,7 @@ $(document).keydown((e) => {
 // Necessary to add a condition to every interaction
 $(window).scroll(() => {
   if ($logo.length == 1) {
-    if ($('.interaction-one')[0].style.display !== "flex" && $('.interaction-two')[0].style.display !== "flex") {
+    if ($('.interaction-one')[0].style.display !== "flex" && $('.interaction-two')[0].style.display !== "flex" && $('.interaction-three')[0].style.display !== "flex") {
       if ($(this).scrollTop() > 400) {
         $logo[0].classList.add("adjust-position");
         $navbar.classList.add("adjust-size");
@@ -215,17 +238,32 @@ function boatMovement(image, mouseIn) {
   if (mouseIn) {
     boatTimer = setInterval(() => {
       image.style.left = moveBoat(image);
-      console.log("interval: " + image.style.left);
 
       if (image.style.left >= '920px') {
         clearInterval(boatTimer);
         mouseIn = false;
         image.classList.add('no-hover');
         $(image).attr('src', 'media/interactions/barco-moved.svg');
+
+        // show timeout
+        setTimeout(() => {
+          $('#interaction-four')[0].style.display = 'flex';
+          $('#interaction-four')[0].style.visibility = 'hidden';
+          document.querySelector('#interaction-four').scrollIntoView({
+            behavior: 'smooth'
+          });
+        }, 200);
+        // hide timeout
+        setTimeout(() => {
+          $('#interaction-four')[0].style.visibility = 'visible';
+          $('#interaction-three')[0].style.display = 'none';
+          $boatHover.classList.remove('no-hover');
+          $boatHover.style.left = "0px";
+          $($boatHover).attr('src', 'media/interactions/barco.svg');
+        }, 1000);
       }
     }, 100);
   } else {
     clearInterval(boatTimer);
-    console.log("cleared: " + image.style.left);
   }
 }

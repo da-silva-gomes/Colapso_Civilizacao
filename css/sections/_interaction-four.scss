@@ -1,4 +1,4 @@
-.interaction-three {
+.interaction-four {
   overflow-y: hidden;
   width: 100vw;
   height: 100vh;
@@ -11,41 +11,43 @@
     z-index: 1000;
   }
 
-  .boat-hover {
-    position: absolute;
-    width: 40%;
-    bottom: 10vh;
-    transition: all ease-out 2s;
-
-    &.no-hover {
-      &:hover {
-        animation: none;
-        -webkit-animation: none;
-      }
-    }
-
-    &:hover {
-      animation: boat-movement 3s ease-in-out;
-      animation-iteration-count: infinite;
-      -webkit-animation: boat-movement 3s linear;
-      -webkit-animation-iteration-count: infinite;
-    }
-  }
-
   .bg {
     position: absolute;
-    width: 105%;
-    top: -5vh;
-    left: -2.5%;
+    width: 80%;
+    top: 10vh;
+    left: 10%;
     z-index: -1;
 
-    &.bottom {
-      top: auto;
-      bottom: 0;
+    &.top {
+      width: 60%;
+      top: 0;
+      left: 20%;
     }
   }
 
-  .boat-instruction {
+  .bottle-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 50rem;
+    bottom: 0;
+
+    .bottle-cap {
+      position: relative;
+      width: 47%;
+      left: 9%;
+      margin-bottom: -$lg; // mais de 400 px como posição inicial
+      z-index: 1;
+    }
+
+    .bottle {
+      position: relative;
+      width: 100%;
+    }
+  }
+
+
+  .bottle-instruction {
     position: absolute;
     right: 2vw;
     bottom: 2vh;
