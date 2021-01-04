@@ -94,14 +94,13 @@ $(document).ready(() => {
     // hide timeout
     setTimeout(() => {
       $('#interaction-three')[0].style.display = 'none';
-      console.log($boatHover);
       $boatHover.classList.remove('no-hover');
       $boatHover.style.left = "0px";
       $($boatHover).attr('src', 'media/interactions/barco.svg');
     }, 1000);
   });
 
-  // Condition to return to previous section [Between Interaction-thre and Interaction-three]
+  // Condition to return to previous section [Between Interaction-three and Interaction-three]
   $("#return-to-three").click(() => {
     // show timeout
     setTimeout(() => {
@@ -117,6 +116,26 @@ $(document).ready(() => {
     setTimeout(() => {
       $('#interaction-four')[0].style.display = 'none';
     }, 1000);
+    runScrollMagic(false);
+  });
+
+  // Condition to return to previous section [Between Interaction-three and Interaction-three]
+  $("#return-to-four").click(() => {
+    // show timeout
+    setTimeout(() => {
+      $('#interaction-four')[0].style.display = 'flex';
+      document.querySelector('#interaction-five').scrollIntoView({
+        behavior: 'instant'
+      });
+      document.querySelector('#interaction-four').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }, 200);
+    // hide timeout
+    setTimeout(() => {
+      $('#interaction-five')[0].style.display = 'none';
+    }, 1000);
+    runScrollMagic(true);
   });
 
   // Condition to apply a smooth scroll to Instructions seciton
@@ -152,7 +171,6 @@ $(document).keydown((e) => {
     // Condition to show first interaction and hide initial sections
     if ($('.interaction-one')[0].style.display === "flex") {
       $('#homepage')[0].style.display = 'none';
-      $('#about')[0].style.display = 'none';
       $('#instructions')[0].style.display = 'none';
       $logoSmaller = true;
       $logo[0].classList.add("adjust-position");
@@ -174,7 +192,7 @@ $(document).keydown((e) => {
 // Necessary to add a condition to every interaction
 $(window).scroll(() => {
   if ($logo.length == 1) {
-    if ($('.interaction-one')[0].style.display !== "flex" && $('.interaction-two')[0].style.display !== "flex" && $('.interaction-three')[0].style.display !== "flex") {
+    if ($('.interaction-one')[0].style.display !== "flex" && $('.interaction-two')[0].style.display !== "flex" && $('.interaction-three')[0].style.display !== "flex" && $('.interaction-four')[0].style.display !== "flex") {
       if ($(this).scrollTop() > 400) {
         $logo[0].classList.add("adjust-position");
         $navbar.classList.add("adjust-size");
@@ -199,7 +217,6 @@ function highlightTiger(div) {
   div.classList.add('highlighted');
   $tigers = document.querySelectorAll(".highlighted");
   // Tiger interaction, condition to check if all tigers are highlighted
-  console.log($tigers.length);
   if ($tigers.length === 5) {
     $fiveTigers = true;
   }
@@ -234,7 +251,6 @@ function moveBoat(image) {
 
 // condition for boat movement
 function boatMovement(image, mouseIn) {
-
   if (mouseIn) {
     boatTimer = setInterval(() => {
       image.style.left = moveBoat(image);
@@ -244,6 +260,7 @@ function boatMovement(image, mouseIn) {
         mouseIn = false;
         image.classList.add('no-hover');
         $(image).attr('src', 'media/interactions/barco-moved.svg');
+        runScrollMagic(true);
 
         // show timeout
         setTimeout(() => {
@@ -265,5 +282,64 @@ function boatMovement(image, mouseIn) {
     }, 100);
   } else {
     clearInterval(boatTimer);
+  }
+}
+
+let bottleTimer = null;
+let controller = null;
+let containerScene = null;
+
+function runScrollMagic(interactionUp) {
+  if(interactionUp) {
+    $(function () {
+      controller = new ScrollMagic.Controller();
+      let hs = new TimelineMax();
+
+      // animate panels
+      hs.fromTo("#bottle-cap", 1,
+        { marginBottom: 500 },
+        { marginBottom: -32, ease: Circ.easeInOut }
+      );
+
+      containerScene = new ScrollMagic.Scene({
+        triggerElement: '#bottle-wrapper',
+        duration: '1000'
+      })
+        .setPin('#bottle-wrapper')
+        .setClassToggle("#bottle-wrapper", "interacted")
+        .setTween(hs)
+        .triggerHook(0.3)
+        .addTo(controller);
+    });
+
+    bottleTimer = setInterval(checkForChanges, 1500);
+  } else {
+    containerScene.destroy(true);
+    containerScene = null;
+    controller.destroy(true);
+    controller = null;
+  }
+}
+
+function checkForChanges() {
+  if ($('.bottle-wrapper').hasClass('interacted')) {
+    $('#bottle-cap').attr('src', 'media/interactions/bottle-cap-hover.svg');
+    $('#bottle').attr('src', 'media/interactions/bottle-hover.svg');
+  } else {
+    // change interaction
+    clearInterval(bottleTimer);
+    setTimeout(() => {
+      $('#interaction-five')[0].style.display = 'flex';
+      $('#interaction-five')[0].style.visibility = 'hidden';
+      document.querySelector('#interaction-five').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }, 200);
+    // hide timeout
+    setTimeout(() => {
+      $('#interaction-five')[0].style.visibility = 'visible';
+      $('#interaction-four')[0].style.display = 'none';
+    }, 1000);
+    runScrollMagic(false);
   }
 }

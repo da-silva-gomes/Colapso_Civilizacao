@@ -24,6 +24,7 @@ nav {
 
   .about-link {
     @extend p;
+    text-transform: initial;
     letter-spacing: -1px;
     font-family: "Helvetica Bold", sans-serif;
     float: right;

@@ -1,4 +1,4 @@
-.interaction-four {
+.interaction-five {
   position: relative;
   width: 100vw;
   display: flex;
@@ -11,40 +11,7 @@
     z-index: 2;
   }
 
-  .bg {
-    position: fixed;
-    width: 80%;
-    top: 11vh;
-    left: 10%;
-    z-index: -1;
-
-    &.top {
-      width: 60%;
-      top: 1vh;
-      left: 20%;
-    }
-  }
-
-  .bottle-wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 50rem;
-
-    .bottle-cap {
-      position: relative;
-      width: 47%;
-      left: 9%;
-      z-index: 1;
-    }
-
-    .bottle {
-      position: relative;
-      width: 100%;
-    }
-  }
-
-
-  .bottle-instruction {
+  .robots-instruction {
     position: fixed;
     right: 2vw;
     bottom: 2vh;

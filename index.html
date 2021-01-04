@@ -7,9 +7,10 @@
 
     <link rel="stylesheet" href="css/application.css" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
     <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
       type="text/javascript"
@@ -29,7 +30,7 @@
       <source src="./media/audio/scream.mp3" type="audio/mpeg" />
     </audio>
     <nav id="navbar">
-      <a class="link about-link" onclick="toggleSobre();">Sobre</a>
+      <span class="link about-link" onclick="toggleSobre();">Sobre</span>
       <a href="index.html">
         <div class="logo">
           <h1>O Colapso</h1>
@@ -60,7 +61,7 @@
     </section>
     <section class="about" id="about">
       <div class="book-wrapper">
-        <a class="close-page" href="index.html">X</a>
+        <span class="close-page" onclick="toggleSobre();" href="index.html">X</span>
         <div class="info-wrapper">
           <h1 class="page-title">Sobre</h1>
           <p class="book-title">"O Colapso da Civilização"</p>
@@ -226,15 +227,24 @@
         </p>
       </div>
     </section>
-    <section class="interaction-four" id="interaction-four" style="display: none; width: 100%; height: 100%;">
+    <section class="interaction-four" id="interaction-four" style="display: none;">
       <span id="return-to-three" class="interactions-links">Página anterior</span>
       <img class="bg top" src="media/interactions/PG4-letras.svg" alt="">
       <img class="bg" src="media/interactions/bottle-bg.svg" alt="">
-      <div class="bottle-wrapper">
-        <img class="bottle-cap" src="media/interactions/bottle-cap.svg" alt="">
-        <img class="bottle" src="media/interactions/bottle.svg" alt="">
+      <div class="bottle-wrapper" id="bottle-wrapper">
+        <img class="bottle-cap" id="bottle-cap" src="media/interactions/bottle-cap.svg" alt="">
+        <img class="bottle" id="bottle" src="media/interactions/bottle.svg" alt="">
       </div>
       <div class="bottle-instruction">
+        <p>
+          Encontre a célula reativa e arraste-a até ao círculo no ecrã para
+          avançares.
+        </p>
+      </div>
+    </section>
+    <section class="interaction-five" id="interaction-five" style="display: none; width: 100vw; height: 100vh;">
+      <span id="return-to-four" class="interactions-links">Página anterior</span>
+      <div class="robots-instruction">
         <p>
           Encontre a célula reativa e arraste-a até ao círculo no ecrã para
           avançares.
