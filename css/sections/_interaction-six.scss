@@ -1,0 +1,33 @@
+.interaction-six {
+  position: relative;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  span {
+    position: fixed;
+    color: $pink-400;
+    z-index: 2;
+  }
+
+  .six-instruction {
+    position: fixed;
+    right: 2vw;
+    bottom: 2vh;
+    z-index: 1;
+    background-color: $pink-400;
+    width: 50rem;
+    height: fit-content;
+    height: -webkit-fit-content;
+    border-radius: $xs;
+    padding: $sm;
+    box-shadow: 2px 5px 6px 0 rgba($black, 0.25);
+    margin: 0 $md $lg 0;
+
+    p {
+      font-family: "Permanent Marker", cursive;
+      color: $white;
+    }
+  }
+}

@@ -11,6 +11,82 @@
     z-index: 2;
   }
 
+  .bg {
+    position: absolute;
+    width: 90%;
+    top: -1vh;
+    left: 5%;
+    z-index: -1;
+  }
+
+  .robots-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .heart {
+      width: 10%;
+      position: absolute;
+
+      &.heart-1 {
+        top: 30vh;
+        left: 50vh;
+      }
+
+      &.heart-2 {
+        top: 65vh;
+        left: 45vh;
+      }
+
+      &.heart-3 {
+        top: 32vh;
+        right: 40vh;
+      }
+
+      &.heart-4 {
+        top: 60vh;
+        right: 37vh;
+      }
+
+      &.heart-5 {
+        top: 20vh;
+        left: 17vh;
+      }
+
+      &.heart-6 {
+        top: 45vh;
+        left: 10vh;
+      }
+
+      &.heart-7 {
+        top: 70vh;
+        left: 17vh;
+      }
+
+      &.heart-8 {
+        top: 20vh;
+        right: 17vh;
+      }
+
+      &.heart-9 {
+        top: 45vh;
+        right: 10vh;
+      }
+
+      &.heart-10 {
+        top: 70vh;
+        right: 17vh;
+      }
+    }
+
+    .robots {
+      position: fixed;
+      left: 35%;
+      width: 30%;
+      bottom: 0;
+    }
+  }
+
   .robots-instruction {
     position: fixed;
     right: 2vw;

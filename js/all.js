@@ -1,3 +1,9 @@
+let heart1 = false;
+let heart2 = false;
+let heart3 = false;
+let heart4 = false;
+let heartTimer = null;
+
 $(document).ready(() => {
   $cell = document.querySelectorAll(".cell-drag");
   $logo = document.querySelectorAll(".logo");
@@ -61,6 +67,49 @@ $(document).ready(() => {
     }
   });
 
+  $('.heart-1').click(() => {
+    $('.heart-1').attr('src', 'media/interactions/hearts-left-clicked.svg');
+    return heart1 = true;
+  });
+  $('.heart-2').click(() => {
+    $('.heart-2').attr('src', 'media/interactions/hearts-left-clicked.svg');
+    return heart2 = true;
+  });
+  $('.heart-3').click(() => {
+    $('.heart-3').attr('src', 'media/interactions/hearts-right-clicked.svg');
+    return heart3 = true;
+  });
+  $('.heart-4').click(() => {
+    $('.heart-4').attr('src', 'media/interactions/hearts-right-clicked.svg');
+    return heart4 = true;
+  });
+
+  heartTimer = setInterval(checkHearts, 1000);
+
+  function checkHearts() {
+    if (heart1 && heart2 && heart3 && heart4) {
+      clearInterval(heartTimer);
+      setTimeout(() => {
+        $('#interaction-six')[0].style.display = 'flex';
+        document.querySelector('#interaction-six').scrollIntoView({
+          behavior: 'smooth'
+        });
+        heart1 = false;
+        heart2 = false;
+        heart3 = false;
+        heart4 = false;
+        $('.heart-1').attr('src', 'media/interactions/hearts-left.svg');
+        $('.heart-2').attr('src', 'media/interactions/hearts-left.svg');
+        $('.heart-3').attr('src', 'media/interactions/hearts-right.svg');
+        $('.heart-4').attr('src', 'media/interactions/hearts-right.svg');
+      }, 1200);
+      // hide timeout
+      setTimeout(() => {
+        $('#interaction-five')[0].style.display = 'none';
+      }, 1500);
+    }
+  }
+
   // Condition to return to previous section [Between Interaction-one and Interaction-two]
   $("#return-to-one").click(() => {
     // show timeout
@@ -100,7 +149,7 @@ $(document).ready(() => {
     }, 1000);
   });
 
-  // Condition to return to previous section [Between Interaction-three and Interaction-three]
+  // Condition to return to previous section [Between Interaction-three and Interaction-four]
   $("#return-to-three").click(() => {
     // show timeout
     setTimeout(() => {
@@ -119,7 +168,7 @@ $(document).ready(() => {
     runScrollMagic(false);
   });
 
-  // Condition to return to previous section [Between Interaction-three and Interaction-three]
+  // Condition to return to previous section [Between Interaction-four and Interaction-five]
   $("#return-to-four").click(() => {
     // show timeout
     setTimeout(() => {
@@ -138,6 +187,25 @@ $(document).ready(() => {
     runScrollMagic(true);
   });
 
+  // Condition to return to previous section [Between Interaction-five and Interaction-six]
+  $("#return-to-five").click(() => {
+    // show timeout
+    setTimeout(() => {
+      $('#interaction-five')[0].style.display = 'flex';
+      document.querySelector('#interaction-six').scrollIntoView({
+        behavior: 'instant'
+      });
+      document.querySelector('#interaction-five').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }, 200);
+    // hide timeout
+    setTimeout(() => {
+      $('#interaction-six')[0].style.display = 'none';
+      heartTimer = setInterval(checkHearts, 1000);
+    }, 1000);
+  });
+
   // Condition to apply a smooth scroll to Instructions seciton
   $("#chevron-down").click(() => {
     if ($logo.length == 1) {
@@ -149,6 +217,32 @@ $(document).ready(() => {
     });
   });
 });
+
+function mouseOut(outElement) {
+  if ($(outElement).hasClass('heart-1') && !heart1) {
+    $(outElement).attr('src', 'media/interactions/hearts-left.svg');
+  } else if ($(outElement).hasClass('heart-1') && heart1) {
+    $(outElement).attr('src', 'media/interactions/hearts-left-clicked.svg');
+  }
+
+  if ($(outElement).hasClass('heart-2') && !heart2) {
+    $(outElement).attr('src', 'media/interactions/hearts-left.svg');
+  } else if ($(outElement).hasClass('heart-2') && heart2) {
+    $(outElement).attr('src', 'media/interactions/hearts-left-clicked.svg');
+  }
+
+  if ($(outElement).hasClass('heart-3') && !heart3) {
+    $(outElement).attr('src', 'media/interactions/hearts-right.svg');
+  } else if ($(outElement).hasClass('heart-3') && heart3) {
+    $(outElement).attr('src', 'media/interactions/hearts-right-clicked.svg');
+  }
+
+  if ($(outElement).hasClass('heart-4') && !heart4) {
+    $(outElement).attr('src', 'media/interactions/hearts-right.svg');
+  } else if ($(outElement).hasClass('heart-4') && heart4) {
+    $(outElement).attr('src', 'media/interactions/hearts-right-clicked.svg');
+  }
+}
 
 // Function to check if an element its visible
 $.fn.isInViewport = function () {
@@ -192,7 +286,7 @@ $(document).keydown((e) => {
 // Necessary to add a condition to every interaction
 $(window).scroll(() => {
   if ($logo.length == 1) {
-    if ($('.interaction-one')[0].style.display !== "flex" && $('.interaction-two')[0].style.display !== "flex" && $('.interaction-three')[0].style.display !== "flex" && $('.interaction-four')[0].style.display !== "flex") {
+    if ($('.interaction-one')[0].style.display !== "flex" && $('.interaction-two')[0].style.display !== "flex" && $('.interaction-three')[0].style.display !== "flex" && $('.interaction-four')[0].style.display !== "flex" && $('.interaction-five')[0].style.display !== "flex" && $('.interaction-six')[0].style.display !== "flex") {
       if ($(this).scrollTop() > 400) {
         $logo[0].classList.add("adjust-position");
         $navbar.classList.add("adjust-size");
@@ -290,7 +384,7 @@ let controller = null;
 let containerScene = null;
 
 function runScrollMagic(interactionUp) {
-  if(interactionUp) {
+  if (interactionUp) {
     $(function () {
       controller = new ScrollMagic.Controller();
       let hs = new TimelineMax();
