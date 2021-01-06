@@ -67,20 +67,34 @@ $(document).ready(() => {
     }
   });
 
+  let kiss;
+
   $('.heart-1').click(() => {
     $('.heart-1').attr('src', 'media/interactions/hearts-left-clicked.svg');
+    $kiss = $("#hearts-player");
+    $kiss[0].volume = 0.4;
+    $kiss[0].play();
     return heart1 = true;
   });
   $('.heart-2').click(() => {
     $('.heart-2').attr('src', 'media/interactions/hearts-left-clicked.svg');
+    $kiss = $("#hearts-player");
+    $kiss[0].volume = 0.4;
+    $kiss[0].play();
     return heart2 = true;
   });
   $('.heart-3').click(() => {
     $('.heart-3').attr('src', 'media/interactions/hearts-right-clicked.svg');
+    $kiss = $("#hearts-player");
+    $kiss[0].volume = 0.4;
+    $kiss[0].play();
     return heart3 = true;
   });
   $('.heart-4').click(() => {
     $('.heart-4').attr('src', 'media/interactions/hearts-right-clicked.svg');
+    $kiss = $("#hearts-player");
+    $kiss[0].volume = 0.4;
+    $kiss[0].play();
     return heart4 = true;
   });
 
@@ -334,6 +348,36 @@ function highlightTiger(div) {
   }
 }
 
+function playTigerSound(number) {
+  // play audio after starting interactions
+  const $tiger = $("#tiger-player" + number);
+  $tiger[0].volume = 0.7;
+  $tiger[0].play();
+}
+
+let $boatBg;
+let $cannon;
+
+function playBoatBgSound() {
+  $boatBg = $("#wave-player");
+  $boatBg[0].volume = 0.2;
+  $boatBg[0].play()
+
+  $cannon = $("#cannon-player");
+  $cannon[0].volume = 0.3;
+  $cannon[0].play()
+  $cannon[0].loop = true;
+}
+
+function stopBoatBg() {
+  $boatBg = $("#wave-player");
+  $boatBg[0].pause();
+  $boatBg[0].currentTime = 0;
+  $cannon = $("#cannon-player");
+  $cannon[0].pause();
+  $cannon[0].currentTime = 0;
+}
+
 let boatTimer = null;
 
 function moveBoat(image) {
@@ -442,11 +486,11 @@ let toggleSound = false;
 
 function toggleObject() {
   toggleSound = !toggleSound;
-  if(toggleSound) {
+  if (toggleSound) {
     var url = 'http://localhost:8000?action=soundOn';
 
     fetch(url, {
-      mode:'no-cors',
+      mode: 'no-cors',
     })
 
     $('.object-trigger')[0].innerHTML = 'Desativar som';
@@ -454,7 +498,7 @@ function toggleObject() {
     var url = 'http://localhost:8000?action=soundOff';
 
     fetch(url, {
-      mode:'no-cors',
+      mode: 'no-cors',
     })
 
     $('.object-trigger')[0].innerHTML = 'Ativar som';

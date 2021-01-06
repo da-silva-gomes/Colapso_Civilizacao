@@ -23,10 +23,34 @@
   </head>
   <body>
     <audio id="bg-player" loop autoplay controls style="position: absolute; opacity: 0;">
-      <source src="./media/audio/Dark_Soundscape.mp3" type="audio/mpeg" />
+      <source src="./media/audio/overallBg.mp3" type="audio/mpeg" />
     </audio>
     <audio id="scream-player" style="position: absolute; opacity: 0;">
       <source src="./media/audio/scream.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="tiger-player-1" style="position: absolute; opacity: 0;">
+      <source src="./media/audio/scream.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="tiger-player-2" style="position: absolute; opacity: 0;">
+      <source src="./media/audio/paper.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="tiger-player-3" style="position: absolute; opacity: 0;">
+      <source src="./media/audio/paper.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="tiger-player-4" style="position: absolute; opacity: 0;">
+      <source src="./media/audio/paper.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="tiger-player-5" style="position: absolute; opacity: 0;">
+      <source src="./media/audio/paper.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="wave-player" style="position: absolute; opacity: 0;">
+      <source src="./media/audio/wave.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="cannon-player" style="position: absolute; opacity: 0;">
+      <source src="./media/audio/cannons.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="hearts-player" style="position: absolute; opacity: 0;">
+      <source src="./media/audio/kiss.mp3" type="audio/mpeg" />
     </audio>
     <nav id="navbar">
       <span class="link about-link" onclick="toggleSobre();">Sobre</span>
@@ -169,23 +193,23 @@
       <img class="bg bottom" src="media/interactions/letras1.svg" alt="">
       <div class="tigers-wrapper">
         <img
-          onmouseenter="highlightTiger(this)"
+          onmouseenter="highlightTiger(this); playTigerSound('-1')"
           src="media/interactions/tigre-rosa.svg"
           alt="">
         <img
-          onmouseenter="highlightTiger(this)"
+          onmouseenter="highlightTiger(this); playTigerSound('-2')"
           src="media/interactions/tigre-rosa.svg"
           alt="">
         <img
-          onmouseenter="highlightTiger(this)"
+          onmouseenter="highlightTiger(this); playTigerSound('-3')"
           src="media/interactions/tigre-rosa.svg"
           alt="">
         <img
-          onmouseenter="highlightTiger(this)"
+          onmouseenter="highlightTiger(this); playTigerSound('-4')"
           src="media/interactions/tigre-rosa.svg"
           alt="">
         <img
-          onmouseenter="highlightTiger(this)"
+          onmouseenter="highlightTiger(this); playTigerSound('-5')"
           src="media/interactions/tigre-rosa.svg"
           alt="">
       </div>
@@ -195,7 +219,7 @@
         </p>
       </div>
     </section>
-    <section class="interaction-three" id="interaction-three" style="display: none;">
+    <section class="interaction-three" id="interaction-three" style="display: none;" onmouseenter="playBoatBgSound();">
       <span id="return-to-two" class="interactions-links">Página anterior</span>
       <img class="bg" src="media/interactions/sea-sky.svg" alt="">
       <img class="bg bottom" src="media/interactions/sea-bg.svg" alt="">
@@ -206,7 +230,7 @@
         </p>
       </div>
     </section>
-    <section class="interaction-four" id="interaction-four" style="display: none;">
+    <section class="interaction-four" id="interaction-four" style="display: none;" onmouseenter="stopBoatBg();">
       <span id="return-to-three" class="interactions-links">Página anterior</span>
       <img class="bg top" src="media/interactions/PG4-letras.svg" alt="">
       <img class="bg" src="media/interactions/bottle-bg.svg" alt="">
