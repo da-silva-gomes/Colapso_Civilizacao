@@ -449,7 +449,7 @@ function toggleObject() {
       mode:'no-cors',
     })
 
-    $('.object-trigger')[0].innerHTML = 'Disable Sound';
+    $('.object-trigger')[0].innerHTML = 'Desativar som';
   } else {
     var url = 'http://localhost:8000?action=soundOff';
 
@@ -457,6 +457,6 @@ function toggleObject() {
       mode:'no-cors',
     })
 
-    $('.object-trigger')[0].innerHTML = 'Enable Sound';
+    $('.object-trigger')[0].innerHTML = 'Ativar som';
   }
 }
