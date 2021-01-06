@@ -71,28 +71,28 @@ $(document).ready(() => {
 
   $('.heart-1').click(() => {
     $('.heart-1').attr('src', 'media/interactions/hearts-left-clicked.svg');
-    $kiss = $("#hearts-player");
+    $kiss = $("#hearts-1-player");
     $kiss[0].volume = 0.4;
     $kiss[0].play();
     return heart1 = true;
   });
   $('.heart-2').click(() => {
     $('.heart-2').attr('src', 'media/interactions/hearts-left-clicked.svg');
-    $kiss = $("#hearts-player");
+    $kiss = $("#hearts-2-player");
     $kiss[0].volume = 0.4;
     $kiss[0].play();
     return heart2 = true;
   });
   $('.heart-3').click(() => {
     $('.heart-3').attr('src', 'media/interactions/hearts-right-clicked.svg');
-    $kiss = $("#hearts-player");
+    $kiss = $("#hearts-3-player");
     $kiss[0].volume = 0.4;
     $kiss[0].play();
     return heart3 = true;
   });
   $('.heart-4').click(() => {
     $('.heart-4').attr('src', 'media/interactions/hearts-right-clicked.svg');
-    $kiss = $("#hearts-player");
+    $kiss = $("#hearts-4-player");
     $kiss[0].volume = 0.4;
     $kiss[0].play();
     return heart4 = true;
@@ -376,6 +376,29 @@ function stopBoatBg() {
   $cannon = $("#cannon-player");
   $cannon[0].pause();
   $cannon[0].currentTime = 0;
+}
+
+let $child1;
+let $child2;
+
+function playChildrenSound() {
+  $child1 = $("#child-1-player");
+  $child1[0].volume = 0.1;
+  $child1[0].play()
+
+  $child2 = $("#child-2-player");
+  $child2[0].volume = 0.1;
+  $child2[0].play()
+  $child2[0].loop = true;
+}
+
+function stopChildren() {
+  $child1 = $("#child-1-player");
+  $child1[0].pause();
+  $child1[0].currentTime = 0;
+  $child2 = $("#child-2-player");
+  $child2[0].pause();
+  $child2[0].currentTime = 0;
 }
 
 let boatTimer = null;

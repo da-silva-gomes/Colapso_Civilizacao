@@ -49,8 +49,23 @@
     <audio id="cannon-player" style="position: absolute; opacity: 0;">
       <source src="./media/audio/cannons.mp3" type="audio/mpeg" />
     </audio>
-    <audio id="hearts-player" style="position: absolute; opacity: 0;">
+    <audio id="hearts-1-player" style="position: absolute; opacity: 0;">
       <source src="./media/audio/kiss.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="hearts-2-player" style="position: absolute; opacity: 0;">
+      <source src="./media/audio/kiss.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="hearts-3-player" style="position: absolute; opacity: 0;">
+      <source src="./media/audio/kiss.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="hearts-4-player" style="position: absolute; opacity: 0;">
+      <source src="./media/audio/kiss.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="child-1-player" style="position: absolute; opacity: 0;">
+      <source src="./media/audio/child-1.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="child-2-player" style="position: absolute; opacity: 0;">
+      <source src="./media/audio/child-2.mp3" type="audio/mpeg" />
     </audio>
     <nav id="navbar">
       <span class="link about-link" onclick="toggleSobre();">Sobre</span>
@@ -230,7 +245,7 @@
         </p>
       </div>
     </section>
-    <section class="interaction-four" id="interaction-four" style="display: none;" onmouseenter="stopBoatBg();">
+    <section class="interaction-four" id="interaction-four" style="display: none;" onmouseenter="stopBoatBg(); playChildrenSound();">
       <span id="return-to-three" class="interactions-links">Página anterior</span>
       <img class="bg top" src="media/interactions/PG4-letras.svg" alt="">
       <img class="bg" src="media/interactions/bottle-bg.svg" alt="">
@@ -244,7 +259,7 @@
         </p>
       </div>
     </section>
-    <section class="interaction-five" id="interaction-five" style="display: none; width: 100vw; height: 100vh;">
+    <section class="interaction-five" id="interaction-five" style="display: none; width: 100vw; height: 100vh;" onmouseenter="stopChildren();">
       <span id="return-to-four" class="interactions-links">Página anterior</span>
       <img class="bg" src="media/interactions/robots-bg.svg" alt="">
       <div class="robots-wrapper">
