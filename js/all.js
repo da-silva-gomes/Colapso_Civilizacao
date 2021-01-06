@@ -437,3 +437,26 @@ function checkForChanges() {
     runScrollMagic(false);
   }
 }
+
+let toggleSound = false;
+
+function toggleObject() {
+  toggleSound = !toggleSound;
+  if(toggleSound) {
+    var url = 'http://localhost:8000?action=soundOn';
+
+    fetch(url, {
+      mode:'no-cors',
+    })
+
+    $('.object-trigger')[0].innerHTML = 'Disable Sound';
+  } else {
+    var url = 'http://localhost:8000?action=soundOff';
+
+    fetch(url, {
+      mode:'no-cors',
+    })
+
+    $('.object-trigger')[0].innerHTML = 'Enable Sound';
+  }
+}

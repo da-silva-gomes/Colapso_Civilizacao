@@ -22,6 +22,18 @@ nav {
     }
   }
 
+  .object-trigger {
+    @extend p.small;
+    text-transform: initial;
+    letter-spacing: -1px;
+    font-family: "Helvetica", sans-serif;
+    float: right;
+    margin: {
+      top: 4px;
+      right: $md;
+    }
+  }
+
   .about-link {
     @extend p;
     text-transform: initial;
